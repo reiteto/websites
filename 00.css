@@ -1,0 +1,126 @@
+/*=============================================
+
+    Music Player #02 by glenthemes [2026]
+      glen-docs.gitlab.io/player/02
+
+=============================================*/
+
+/* play & pause icons from Phosphor Icons */
+@import url("https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css");
+
+/* line icons by Ahmed Agrma */
+@import url("https://aa-line-icons.gitlab.io/i/icons.css");
+
+/* Readex Pro by Thomas Jockin */
+@font-face { font-family: "Readex Pro"; src: url("https://gfonts.gitlab.io/t/ReadexPro-Variable.ttf"); }
+
+[glenplayer02]{
+  position:relative;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity var(--MusicPlayer-FadeIn-Speed,0s) ease-in-out, visibility 0s 0s ease-in-out;
+  
+  display:flex;
+  flex-flow:column nowrap;
+  align-items:flex-start; /* x-left */
+  gap:var(--MusicPlayer-Multiple-Players-Spacing,0px);
+}
+
+[glenplayer02].done {
+  opacity:1;
+  visibility:visible;
+  transition:opacity var(--MusicPlayer-FadeIn-Speed,0s) ease-in-out, visibility 0s 0s ease-in-out;
+}
+
+[glenplayer02][top],
+[glenplayer02][bottom],
+[glenplayer02][left],
+[glenplayer02][right]{
+  position:fixed;
+}
+
+[glenplayer02][top]{
+  top:0;margin-top:var(--MusicPlayer-Corner-Offset);
+}
+
+[glenplayer02][bottom]{
+  bottom:0;margin-bottom:var(--MusicPlayer-Corner-Offset);
+}
+
+[glenplayer02][left]{
+  left:0;margin-left:var(--MusicPlayer-Corner-Offset);
+}
+
+[glenplayer02][right]{
+  right:0;margin-right:var(--MusicPlayer-Corner-Offset);
+}
+
+[glenplayer02] .player-inner {
+  margin:calc(0px - var(--MusicPlayer-Buttons-Padding));
+  display:flex;
+  align-items:center;
+}
+
+[glenplayer02] .buttons {
+  flex-shrink:0;
+  margin-right:calc(var(--MusicPlayer-Gap-1) - var(--MusicPlayer-Buttons-Padding));
+}
+
+[glenplayer02] .buttons,
+[glenplayer02] .buttons * {
+  line-height:1!important;
+}
+
+[glenplayer02] .buttons i[class]:not([class=""]){
+  font-size:var(--MusicPlayer-Buttons-Size);
+  color:var(--MusicPlayer-Buttons-Color);
+}
+
+[glenplayer02] .buttons button {
+  background:transparent;
+  margin:0px;
+  border:none;
+
+  padding:var(--MusicPlayer-Buttons-Padding);
+  cursor:pointer;
+}
+
+[glenplayer02] [play-button] i[class]:not([class=""]){
+  margin-left:-1px;
+  padding-right:1px;
+}
+
+[glenplayer02] [pause-button]{
+  display:none;
+}
+
+[glenplayer02] .aa-line-icons:not(.buttons .aa-line-icons){
+  display:block;
+  flex-shrink:0;
+  margin-right:var(--MusicPlayer-Gap-2);
+  font-size:var(--MusicPlayer-Decoration-Icon-Size);
+  color:var(--MusicPlayer-Decoration-Icon-Color);
+  -webkit-text-stroke-width:0.3px;
+  -webkit-text-stroke-color:currentColor;
+}
+
+[glenplayer02] .aa-line-icons[no-stroke]{
+  -webkit-text-stroke-width:0px;
+  -webkit-text-stroke-color:transparent;
+}
+
+[glenplayer02] figure {
+  margin:0;
+}
+
+[glenplayer02] [song-name]{
+  font-family:var(--MusicPlayer-Song-Name-Font), sans-serif;
+  font-size:var(--MusicPlayer-Song-Name-Font-Size);
+  letter-spacing:0.015em;
+  color:var(--MusicPlayer-Song-Name-Color);
+}
+
+[glenplayer02] [song-name][uppercase="yes"i]{
+  text-transform:uppercase;
+  letter-spacing:0.025em;
+}
