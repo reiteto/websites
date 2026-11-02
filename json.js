@@ -517,7 +517,7 @@ function createHeader(blogName, theBlog, postID, active, tumblrmart_accessories)
     // create reblog header link and avatar img
     let blogURL = theBlog.endsWith('/')?theBlog.slice(0, -1):theBlog
     let reblogHeader = document.createElement('a')
-    let thePost = postID?+postID:''
+    let thePost = postID?'/'+postID:''
     reblogHeader.href = blogURL+thePost
     // let userAvatar = `<img class="user-avatar" src="https://api.tumblr.com/v2/blog/${ blogName }/avatar/64">`
     let userClass = active?'ti-user-edit':'ti-user-x'
@@ -616,7 +616,7 @@ function npfInit(post){
                 let postID = trail.post.id
                 let blogURL = theBlog.endsWith('/')?theBlog.slice(0, -1):theBlog
                 let reblogHeader = document.createElement('a')
-                let thePost = postID?+postID:''
+                let thePost = postID?'/'+postID:''
                 link.href = blogURL+thePost
             })
 
